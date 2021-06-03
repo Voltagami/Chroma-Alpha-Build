@@ -5,7 +5,8 @@ using UnityEngine;
 public class Bounce : MonoBehaviour
 {
     // Auffälligkeiten: - man kann gegen den Bounce ankommen, besser wäre es, wenn man sich überall bewegen kann, ausser der Richtung des Bounces
-    //                  - es klappt nicht immer zu 100%, dass aus egal welcher Höhe zu dieser Höhe zurückspringt, sondern es macht den Mindestbounce von 13f zum Teil
+    //                  - es klappt zu ziemlich 100% mit der Funktion aus einer Höhe springen und wieder zur gleichen zurückkommen (muss nur aufpassen wie schnell man in den Trigger kommt, sonst hat es keine Zeit rechtzeitig zu reagieren)
+    //                    Ausserdem sollte man, wenn man in der Luft ist, nicht zu spät schiessen, sonst wird der Trigger zu spät erstellt, um deine Velocity zu übernehmen
     //                  - der Bounce ist nicht wirklich korrekt, es reflektiert nicht den Vektor, sondern man bounced zu der Vektorrichtung, wo das Splatter-Decal hinzeigt
 
     private void OnTriggerEnter(Collider other)
