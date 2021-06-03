@@ -24,10 +24,5 @@ public class TooNear : MonoBehaviour
         {
             tooNear = true;
         }
-
-        else
-        {
-            tooNear = false;
-        }
     }
 }

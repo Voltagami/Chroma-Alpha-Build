@@ -45,5 +45,10 @@ public class ProjectileSpawn : MonoBehaviour
             Instantiate(blobProjectiles[number], transform.position, transform.rotation);
             Instantiate(ghostProjectile, transform.position, transform.rotation);
         }
+
+        else
+        {
+            obstacleCheck.tooNear = false;
+        }
     }
 }
