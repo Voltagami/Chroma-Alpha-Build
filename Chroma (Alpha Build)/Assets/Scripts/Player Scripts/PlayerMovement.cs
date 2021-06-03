@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 velocity;
     public bool isGrounded;
     public bool isOnObject;
+    public bool canJump = false;
 
     // Update is called once per frame
     void Update()
@@ -24,18 +25,22 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         isOnObject = Physics.CheckSphere(groundCheck.position, groundDistance, objectMask);
 
-        if (isGrounded && velocity.y < 0)
+        if ((controller.isGrounded || isGrounded) && velocity.y < 0)
         {
             velocity.y = -2f;
             velocity.x = 0f;
             velocity.z = 0f;
+
+            canJump = true;
         }
 
-        if (isOnObject && velocity.y < 0)
+        if ((controller.isGrounded || isOnObject) && velocity.y < 0)
         {
             velocity.y = -2f;
             velocity.x = 0f;
             velocity.z = 0f;
+
+            canJump = true;
         }
 
         if (speed > 12f)
@@ -50,14 +55,11 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(move * speed * Time.deltaTime);
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump") && canJump == true)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-        }
 
-        if (Input.GetButtonDown("Jump") && isOnObject)
-        {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            canJump = false;
         }
 
         velocity.y += gravity * Time.deltaTime;
