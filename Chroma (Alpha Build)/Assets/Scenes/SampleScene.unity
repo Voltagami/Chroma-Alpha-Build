@@ -1889,6 +1889,7 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   isGrounded: 0
   isOnObject: 0
+  canJump: 0
 --- !u!114 &271146972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4943,7 +4944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c13286e324784884db6a82e300825708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 700
+  mouseSensitivity: 500
   playerBody: {fileID: 271146970}
 --- !u!114 &963194230
 MonoBehaviour:

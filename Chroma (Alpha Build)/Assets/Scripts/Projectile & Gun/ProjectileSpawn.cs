@@ -39,7 +39,7 @@ public class ProjectileSpawn : MonoBehaviour
             number = 3;
         }
 
-        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire && obstacleCheck.tooNear == false)
+        if (Input.GetMouseButton(0) && Time.time >= nextTimeToFire && obstacleCheck.tooNear == false)
         {
             nextTimeToFire = Time.time + 1f / fireRate;
             Instantiate(blobProjectiles[number], transform.position, transform.rotation);
