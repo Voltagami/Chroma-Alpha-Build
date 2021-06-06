@@ -9,6 +9,7 @@ public class Bounce : MonoBehaviour
     //                    Ausserdem sollte man, wenn man in der Luft ist, nicht zu spät schiessen, sonst wird der Trigger zu spät erstellt, um deine Velocity zu übernehmen.
     //                    Zusätzlich, wenn, wieso auch immer, 2 Splatter-Decals sich verflechten, dann gibt es keinen Bounce, aber nur, wenn man die Linie, wo velocity mit transform.forward gleichgesetzt wird, wegmacht!!!
     //                  - der Bounce ist nicht wirklich korrekt, es reflektiert nicht den Vektor, sondern man bounced zu der Vektorrichtung, wo das Splatter-Decal hinzeigt
+    //                  - wenn man von der Wand abgeprall wird und auf einen Bounce-Decal auf den Boden landet und wieder von der Wand abgeprallt wird usw. Dann baut sich der Bounce immer weiter auf...
 
     private void OnTriggerEnter(Collider other)
     {
@@ -30,6 +31,8 @@ public class Bounce : MonoBehaviour
 
             bounceTrigger.velocity.y = bounceTrigger.velocity.magnitude * 0.27f;
         }
+
+        bounceTrigger.canJump = false;
     }
 
     private void OnTriggerStay(Collider other)
@@ -52,5 +55,7 @@ public class Bounce : MonoBehaviour
 
             bounceTrigger.velocity.y = bounceTrigger.velocity.magnitude * 0.27f;
         }
+
+        bounceTrigger.canJump = false;
     }
 }
