@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GhostProjectile : MonoBehaviour
 {
+    // Auffälligkeiten: - man eliminiert nicht immer die vorherigen Decals. Also man kann sie noch überlagern wieso auch immer
+
     public float damage = 10f;
     public float impactForce = 35f;
 
